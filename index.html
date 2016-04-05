@@ -43,7 +43,7 @@
         var $watch = MP.api.segment(watchEvent, watchProp, {from: moment().subtract(30, 'days'), method: 'sum'});
         
         $.when($dau, $watch).done(function(dau, watch){
-          var watchchart = $('#TotalMinutesWatched').MPChart({chartType: 'line', data: watch});
+          //var watchchart = $('#TotalMinutesWatched').MPChart({chartType: 'line', data: watch});
           var dauValues = dau.values();
           var watchValues = watch.values();
           var data = {
