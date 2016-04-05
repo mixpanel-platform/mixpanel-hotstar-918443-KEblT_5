@@ -4,10 +4,17 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.mxpnl.com/libs/mixpanel-platform/css/reset.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.css">
     <script src="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.js"></script>
+    <style>
+      #AWMU {
+        float:center;
+        width:100%;
+      }
+    </style>
   </head>
   <body class="mixpanel-platform-body">
-    
-    <div id="table"></div>
+    <div class="mixpanel platform section">
+      <div id="AMWU"> Avg. Minutes Watched Per User </div>
+    </div>
     <script>
       MP.api.ready(function() {
         
@@ -44,7 +51,7 @@
               }
           });
           
-          var chart = $('<div></div>').appendTo('body').MPChart({chartType: 'line'});
+          var chart = $('#AMWU').appendTo('body').MPChart({chartType: 'line'});
           
           chart.MPChart('setData', data);
           
