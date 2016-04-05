@@ -5,12 +5,12 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.css">
     <script src="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.js"></script>
     <style>
-      #AWMU {
-        float:center;
-        width:100%;
-      }
       #TotalMinutesWatched {
         float:left;
+        width:100%;
+      }
+      #AWMU {
+        float:center;
         width:100%;
       }
     </style>
@@ -42,6 +42,8 @@
         var $dau = MP.api.events(dauEventName, dauParams);
         var $watch = MP.api.segment(watchEvent, watchProp, {from: moment().subtract(30, 'days'), method: 'sum'});
         
+        var chart = $('#TotalMinutesWatched').MPChart({chartType: 'line', data: $watch});
+        
         $.when($dau, $watch).done(function(dau, watch){
           var dauValues = dau.values();
           var watchValues = watch.values();
@@ -56,7 +58,6 @@
               }
           });
           
-          var chart = $('#TotalMinutesWatched').MPChart({chartType: 'line', data: watch});
           var chart = $('#AMWU').MPChart({chartType: 'line'});
           
           chart.MPChart('setData', data);
