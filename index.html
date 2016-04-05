@@ -42,9 +42,10 @@
         var $dau = MP.api.events(dauEventName, dauParams);
         var $watch = MP.api.segment(watchEvent, watchProp, {from: moment().subtract(30, 'days'), method: 'sum'});
         
-        var chart = $('#TotalMinutesWatched').MPChart({chartType: 'line', data: $watch});
+        var chart = $('#TotalMinutesWatched').MPChart({chartType: 'line', data: watch});
         
         $.when($dau, $watch).done(function(dau, watch){
+          var watchchart = $('#TotalMinutesWatched').MPChart({chartType: 'line', data: watch});
           var dauValues = dau.values();
           var watchValues = watch.values();
           var data = {
@@ -58,9 +59,7 @@
               }
           });
           
-          var chart = $('#AMWU').MPChart({chartType: 'line'});
-          
-          chart.MPChart('setData', data);
+          var chart = $('#AMWU').MPChart({chartType: 'line', data: data});
           
         });
      
