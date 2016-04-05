@@ -56,7 +56,7 @@
               }
           });
           
-          var chart = $('#TotalMinutesWatched')
+          var chart = $('#TotalMinutesWatched').appendTo('body').MPChart({chartType: 'line'});
           var chart = $('#AMWU').appendTo('body').MPChart({chartType: 'line'});
           
           chart.MPChart('setData', data);
