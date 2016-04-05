@@ -18,7 +18,7 @@
   <body class="mixpanel-platform-body">
     <div class="mixpanel platform section">
       <div id="AMWU"> Avg. Minutes Watched Per User </div>
-      <div id="TotalMinutesWatched"> </div>
+      <div id="TotalMinutesWatched"> Total Min Watched </div>
     </div>
     <script>
       MP.api.ready(function() {
@@ -60,7 +60,7 @@
           $('#AMWU').MPChart({chartType: 'line', data: data});
           
         });
-        $('#TotalMinutesWatched').MPChart({chartType: 'line', data: watch});
+        $('#TotalMinutesWatched').MPChart({chartType: 'line', data: $watch});
         
       });
     </script>
