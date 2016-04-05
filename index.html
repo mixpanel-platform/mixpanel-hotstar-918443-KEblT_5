@@ -9,11 +9,16 @@
         float:center;
         width:100%;
       }
+      #TotalMinutesWatched {
+        float:left;
+        width:50%;
+      }
     </style>
   </head>
   <body class="mixpanel-platform-body">
     <div class="mixpanel platform section">
       <div id="AMWU"> Avg. Minutes Watched Per User </div>
+      <div id="TotalMinutesWatched"> </div>
     </div>
     <script>
       MP.api.ready(function() {
@@ -51,6 +56,7 @@
               }
           });
           
+          var chart = $('#TotalMinutesWatched')
           var chart = $('#AMWU').appendTo('body').MPChart({chartType: 'line'});
           
           chart.MPChart('setData', data);
